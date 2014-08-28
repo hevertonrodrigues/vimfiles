@@ -386,6 +386,8 @@ nnoremap <C-t> :tabnew<cr>
 nnoremap <C-T> :tabnew<cr>
 nnoremap <A-w> :q<cr>
 nnoremap <A-W> :q<cr>
+nnoremap <C-TAB> :tabnext <cr>
+nnoremap <C-S-TAB> :tabprevious <cr>
 
 
 " ┌───────────────────────────────────┐
