@@ -40,6 +40,8 @@ Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-scripts/matchit.zip'
+Plugin 'majutsushi/tagbar'
+
 
 filetype plugin indent on
 
@@ -135,6 +137,9 @@ set timeoutlen=250 " Time to wait after ESC (default causes an annoying delay)
 set incsearch
 set hlsearch
 
+" Plugin and indentation on
+"filetype plugin indent on
+
 " Forcing the use of hjkl keys to navigate
 noremap <Up> <nop>
 noremap <Down> <nop>
@@ -172,7 +177,7 @@ set noswapfile
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_mode_map={ 'mode': 'active',
-                         \ 'active_filetypes': ['ruby', 'javascript'],
+                         \ 'active_filetypes': ['ruby', 'javascript', 'php'],
                          \ 'passive_filetypes': ['html'] }
 
 " ┌───────────────────────────────────┐
@@ -184,7 +189,7 @@ let g:syntastic_mode_map={ 'mode': 'active',
 " set guifont=Monospace\ 10
 
 " Fonts for Mac
-set guifont=Monaco\ for\ Powerline:h15
+set guifont=Monaco\ for\ Powerline:h12
 " set guifont=Anonymous\ Pro:h17
 " set guifont=Inconsolata-dz:h17
 
@@ -195,8 +200,8 @@ set guioptions-=T
 syntax on
 
 if has("gui_running")
-  set lines=57
-  set columns=237
+  set lines=120
+  set columns=320
 
   " Highlight the line and the column of the current position of cursor
   set cursorline
@@ -210,7 +215,7 @@ if has("gui_running") || $TERM == "xterm-256color"
   set background=dark
   let base16colorspace=256 " Access colors present in 256 colorspace
   " colorscheme ir_black
-  colorscheme base16-default
+  colorscheme solarized
 else
   let g:CSApprox_loaded = 0
 endif
@@ -225,7 +230,7 @@ function TrimWhiteSpace()
   ''
 :endfunction
 
-set list listchars=tab:»·,trail:·
+"set list listchars=tab:»·,trail:·
 
 map <leader>= :call TrimWhiteSpace()<CR>
 map! <leader>= :call TrimWhiteSpace()<CR>
@@ -345,7 +350,7 @@ augroup END
 nnoremap <F12> :source ~/.vimrc
 
 " Ctrl+L clear the highlight as well as redraw
-nnoremap <C-L> :nohls<CR><C-L>
+nnoremap <C-u> :nohls<CR><C-L>
 
 " Improve 'n' command (for searches)
 nmap n nzz
@@ -382,15 +387,6 @@ nnoremap <C-T> :tabnew<cr>
 nnoremap <A-w> :q<cr>
 nnoremap <A-W> :q<cr>
 
-" ┌───────────────────────────────────┐
-" │              Aliases              │
-" └───────────────────────────────────┘
-
-cab W w
-cab Q q
-cab Wq wq
-cab wQ wq
-cab WQ wq
 
 " ┌───────────────────────────────────┐
 " │        Syntax Highlighting        │
@@ -403,7 +399,62 @@ au BufNewFile,BufRead Vagrantfile  set filetype=ruby
 au BufNewFile,BufRead *.pp         set filetype=ruby
 au BufNewFile,BufRead *.prawn      set filetype=ruby
 au BufNewFile,BufRead Appraisals   set filetype=ruby
+au BufNewFile,BufRead Capfile      set filetype=ruby
+au BufNewFile,BufRead *.ctp        set filetype=php
 au BufNewFile,BufRead .psqlrc      set filetype=sql
 au BufNewFile,BufRead *.less       set filetype=css
 au BufNewFile,BufRead bash_profile set filetype=sh
-au BufNewFile,BufRead Capfile      set filetype=ruby
+au BufRead,BufNewFile *.pde        set filetype=arduino
+au BufRead,BufNewFile *.ino        set filetype=arduino
+
+
+
+" ┌───────────────────────────────────┐
+" │              Aliases              │
+" └───────────────────────────────────┘
+
+cab W w
+cab Q q
+cab Wq wq
+cab wQ wq
+cab WQ wq
+
+" ---------------------------------
+" NERDTree
+" ---------------------------------
+" nmap <F2> :NERDTreeToggle<CR>
+"nmap <silent><Leader>p :NERDTreeToggle<CR>
+"nmap <silent><C-M> :NERDTreeToggle<CR>
+nmap <D-e> :NERDTreeToggle<CR>
+
+" Navegation on splits and NERDTree
+nmap <silent><C-k> :wincmd k<CR>
+nmap <silent><C-j> :wincmd j<CR>
+nmap <silent><C-h> :wincmd h<CR>
+nmap <silent><C-l> :wincmd l<CR>
+
+
+
+" ---------------------------------
+" TagBar
+" ---------------------------------
+nmap <D-r> :TagbarToggle<CR>
+
+" ---------------------------------
+" Window Title with filename + (path)
+" ---------------------------------
+
+set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:p:h\")})%)%(\ %a%)\ -\ %{v:servername}
+
+"Key mapping for indentation
+nmap <D-[> <<
+nmap <D-]> >>
+vmap <D-[> <gv
+vmap <D-]> >gv
+
+noremap ff :t.<CR>
+
+"set exrc
+"set secure
+let g:vim_tags_auto_generate = 1
+let g:vim_tags_project_tags_command = "ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
