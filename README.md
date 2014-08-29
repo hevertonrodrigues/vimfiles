@@ -2,13 +2,11 @@
 
 **Vimfiles** are configuration files for the Vim editor. It includes editor preferences, colorscheme, font definitions, plugins, custom functions and more.
 
-**This project is my personal Vimfiles**. Feel free to send me suggestions through the [issues page](https://github.com/lucascaton/vimfiles/issues/new) or to send me improvements through the [Pull Requests page](https://github.com/lucascaton/vimfiles/pulls).
-
 ## How to use these vim configs
 
 Clone this repository into your home directory as `~/.vim` and then install the plugins. Such as:
 
-    git clone git://github.com/lucascaton/vimfiles.git ~/.vim
+    git clone git://github.com/hevertonrodrigues/vimfiles.git ~/.vim
     git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
     ln -s ~/.vim/vimrc ~/.vimrc
     cp ~/.vim/fonts/Monaco+for+Powerline.otf ~/Library/Fonts/
@@ -26,7 +24,7 @@ Install jshint, in order to review your javascript files:
 ## Colorscheme
 
 * base16-default *(my current one)*
-* ir_black
+* solarized
 
 ## Fonts
 
@@ -53,6 +51,7 @@ These are my favorite fonts:
 | [Syntastic](https://github.com/scrooloose/syntastic)               | Syntax checking hacks.                                                                                      |                                                                                                                                              |
 | [Tabular](https://github.com/godlygeek/tabular)                    | Text filtering and alignmentClone.                                                                          |                                                                                                                                              |
 | [Tcomment](https://github.com/tomtom/tcomment_vim)                 | An extensible & universal comment vim-plugin that also handles embedded filetypes.                          |                                                                                                                                              |
+| [Tagbar](https://github.com/majutsushi/tagbar)                     | Vim plugin that displays tags in a window.                                                                  | [http://majutsushi.github.io/tagbar/](http://majutsushi.github.io/tagbar/)                                                                   |
 | [Vim Abolish](https://github.com/tpope/vim-abolish)                | Easily search for, substitute, and abbreviate multiple variants of a word.                                  | [http://vimcasts.org/episodes/supercharged-substitution-with-subvert/](http://vimcasts.org/episodes/supercharged-substitution-with-subvert/) |
 | [Vim Airline](https://github.com/bling/vim-airline)                | Lean & mean status / tabline                                                                                |                                                                                                                                              |
 | [Vim Coffee Script](https://github.com/kchmck/vim-coffee-script)   | CoffeeScript support for Vim                                                                                | [http://kien.github.com/ctrlp.vim/](http://kien.github.com/ctrlp.vim/)                                                                       |
