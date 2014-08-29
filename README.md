@@ -1,4 +1,4 @@
-# Vimfiles by Lucas Caton
+# Vimfiles by Heverton Rodrigues
 
 **Vimfiles** are configuration files for the Vim editor. It includes editor preferences, colorscheme, font definitions, plugins, custom functions and more.
 
@@ -81,10 +81,11 @@ Visit the following sites to learn more about Vim:
 
 ## Credits
 
-Created and maintained by [Lucas Caton](https://lucascaton.com.br).
+Created by [Lucas Caton](https://lucascaton.com.br).
 
-* [My blog](http://blog.lucascaton.com.br/)
-* [My twitter](http://twitter.com/lucascaton)
+* [blog](http://blog.lucascaton.com.br/)
+* [github](https://github.com/lucascaton/)
+* [twitter](http://twitter.com/lucascaton)
 
 ## License
 
