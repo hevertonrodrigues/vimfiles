@@ -1,10 +1,8 @@
-" ┌───────────────────────────────────┐
-" │      VimFiles by Lucas Caton      │
-" ├───────────────────────────────────┤
-" │ http://lucascaton.com.br/         │
-" │ http://blog.lucascaton.com.br/    │
-" │ http://www.twitter.com/lucascaton │
-" └───────────────────────────────────┘
+" ┌───────────────────────────────────────┐
+" │     VimFiles by Heverton Rodrigues    │
+" ├───────────────────────────────────────┤
+" │  http://github.com/hevertonrodrigues  │
+" └───────────────────────────────────────┘
 
 
 " ┌───────────────────────────────────┐
@@ -41,6 +39,8 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-scripts/matchit.zip'
 Plugin 'majutsushi/tagbar'
+Plugin 'keith/swift.vim'
+Plugin 'tomlion/vim-solidity'
 
 
 filetype plugin indent on
@@ -95,10 +95,12 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 autocmd FileType python     set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html       set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType mustache   set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css        set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml        set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php        set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c          set omnifunc=ccomplete#Complete
+autocmd FileType c          set omnifunc=ccomplete#CompleteC
+autocmd FileType swift      set omnifunc=swiftcomplete#CompleteSwift
 
 autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
 autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
@@ -174,6 +176,7 @@ set nobackup
 set noswapfile
 
 " Syntastic configs
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_mode_map={ 'mode': 'active',
@@ -201,7 +204,7 @@ syntax on
 
 if has("gui_running")
   set lines=120
-  set columns=320
+  set columns=420
 
   " Highlight the line and the column of the current position of cursor
   set cursorline
